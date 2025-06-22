@@ -8,3 +8,4 @@ aiofiles
 requests
 openpyxl
 aiohttp
+mistralai
