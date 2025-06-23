@@ -3,6 +3,9 @@ from slack_sdk.web.async_client import AsyncWebClient
 from mistral_agent import answer_query
 from spreadsheet_parser import parse_file
 
+from dotenv import load_dotenv
+load_dotenv()
+
 client = AsyncWebClient(token=os.getenv("SLACK_BOT_TOKEN"))
 
 async def handle_slash_command(payload):
