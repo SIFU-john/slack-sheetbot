@@ -9,3 +9,4 @@ openpyxl
 aiohttp
 mistralai
 httpx
+python-multipart
