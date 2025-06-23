@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request
-from slack_handlers import handle_slash_command, handle_event
+from fastapi.responses import JSONResponse
+from slack_handlers import handle_event, handle_slash_command
 
 app = FastAPI()
 
@@ -10,4 +11,10 @@ async def slack_command(req: Request):
 @app.post("/slack/events")
 async def slack_event(req: Request):
     body = await req.json()
+    
+    # ✅ Handle Slack's URL verification request
+    if body.get("type") == "url_verification":
+        return JSONResponse(content={"challenge": body["challenge"]})
+    
+    # ✅ Forward other events to handler
     return await handle_event(body)
