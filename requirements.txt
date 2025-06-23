@@ -1,6 +1,5 @@
 fastapi
 uvicorn
-openai
 slack_sdk
 pandas
 python-dotenv
@@ -9,3 +8,4 @@ requests
 openpyxl
 aiohttp
 mistralai
+httpx
